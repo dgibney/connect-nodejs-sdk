@@ -151,8 +151,8 @@ module.exports = function(apiClient) {
    * @param {module:model/CompletePaymentRequest} body An object containing the fields to POST for the request.  See the corresponding object definition for field details.
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/CompletePaymentResponse} and HTTP response
    */
-  this.completePaymentWithHttpInfo = function(paymentId, body) {
-    var postBody = body;
+  this.completePaymentWithHttpInfo = function(paymentId) {
+    var postBody = null;
 
     // verify the required parameter 'paymentId' is set
     if (paymentId === undefined || paymentId === null) {
@@ -196,8 +196,8 @@ module.exports = function(apiClient) {
    * @param {module:model/CompletePaymentRequest} body An object containing the fields to POST for the request.  See the corresponding object definition for field details.
    * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/CompletePaymentResponse}
    */
-  this.completePayment = function(paymentId, body) {
-    return this.completePaymentWithHttpInfo(paymentId, body)
+  this.completePayment = function(paymentId) {
+    return this.completePaymentWithHttpInfo(paymentId)
       .then(function(response_and_data) {
         return response_and_data.data;
       });
